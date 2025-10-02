@@ -1516,3 +1516,15 @@ section,
   margin-bottom: 1.5rem;
   color: #eaeaea; /* Light gray for dark background */
 }
+
+
+.portfolio-content a img {
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-info {
+  position: relative;
+  z-index: 1; /* make sure overlay is behind the link */
+}
