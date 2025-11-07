@@ -996,6 +996,12 @@ section,
   z-index: 1;
 }
 
+.about-page .testimonial-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .testimonials .testimonial-item {
   height: 100%;
   display: flex;
