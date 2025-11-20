@@ -26,7 +26,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <h1 class="sitename">My Portfolio Website</h1>
+        <h1 class="sitename">Hassan Byekwaso</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -46,38 +46,69 @@
   <main class="main">
 
     <!-- Hero -->
-    <section id="hero" class="d-flex align-items-center" style="background-color:#f7fafc; padding-top:100px; padding-bottom:40px;">
+    <section id="hero" class="hero section">
       <div class="container">
-        <div class="row align-items-center gy-4">
-          <div class="col-lg-4 text-center">
-            <img src="assets/img copy/person/IMG-20250629-WA0074.jpg" alt="Hassan Byekwaso" class="img-fluid rounded-3 shadow-sm"
-              style="max-width:220px; height: 220px; object-fit: cover;">
+        <div class="row gy-4 justify-content-center align-items-center">
+          <div class="col-lg-5 text-center order-1 order-lg-1">
+            <img src="assets/img/services/IMG_20251117_121228_050.jpg" alt="Hassan Byekwaso"
+              class="img-fluid shadow-sm">
           </div>
-          <div class="col-lg-8">
-            <h1 class="display-5 fw-bold">Hassan Byekwaso</h1>
-            <p class="lead mb-2">I build clean, accessible websites and provide professional French ↔ English translation.</p>
-            <p class="small text-muted">Design • Web Development • Translation</p>
-            <div class="mt-3">
-              <a href="about.html" class="btn btn-primary me-2">About Me</a>
-              <a href="contact.html" class="btn btn-outline-dark">Contact</a>
+
+          <div class="col-lg-7 order-2 order-lg-2">
+            <div class="hero-content">
+              <h1 class="display-5 fw-bold mb-3">Hassan Byekwaso</h1>
+
+              <p class="lead mb-3">
+                I build clean, accessible websites and provide professional French ↔ English translation.
+              </p>
+
+              <p class="mb-3 text-secondary fw-semibold">
+                <span>Design</span> <span class="mx-2">•</span> <span>Web Development</span> <span class="mx-2">•</span> <span>Translation</span>
+              </p>
+
+              <div class="d-flex gap-2 mt-3">
+                <a href="about.html" class="btn btn-primary">About Me</a>
+                <a href="contact.html" class="btn btn-outline-dark">Contact</a>
+              </div>
             </div>
+
+            <div class="mt-5">
+              <h2 class="h4 mb-3">Quick Overview</h2>
+              <p class="mb-0 text-secondary">Graduate of Maseno University (B.A. French with IT). Trained in Web Design & Development (Finn Church Aid).
+                I combine linguistic expertise and practical web skills to deliver polished websites and professional translations between French and English.</p>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About brief -->
-    <section id="about-brief" class="section bg-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h2 class="mb-3">Quick Overview</h2>
-            <p class="mb-0">Graduate of Maseno University (B.A. French with IT). Trained in Web Design & Development (Finn Church Aid).
-              I combine linguistic expertise and practical web skills to deliver polished websites and professional translations between French and English.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <style>
+      /* Custom Hero Section Styles */
+      .hero {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #f7fafc;
+        padding: 120px 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero .hero-content .lead {
+        font-size: 1.125rem;
+        color: #1f2937;
+      }
+
+      .hero img {
+        max-width: 380px;
+      }
+
+      @media (max-width: 991px) {
+        .hero { min-height: auto; padding: 100px 0 40px 0; }
+        .hero .hero-content, .hero .mt-5 { text-align: center; }
+        .hero .d-flex { justify-content: center; }
+      }
+    </style>
 
     <!-- Services -->
     <section id="services" class="section">
@@ -128,7 +159,7 @@
 
   <footer id="footer" class="footer">
     <div class="container text-center">
-      <h3 class="sitename">My Portfolio Website</h3>
+      <h3 class="sitename">Hassan Byekwaso</h3>
       <p class="small mb-2">Design • Web Development • Translation</p>
       <div class="social-links d-flex justify-content-center mb-3">
         <a href="https://www.linkedin.com/in/hassan-byekwaso-66874b306" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>

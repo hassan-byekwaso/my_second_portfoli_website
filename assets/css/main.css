@@ -761,6 +761,18 @@ section,
   background-color: var(--accent-color);
 }
 
+/* Hero content tweaks */
+.hero-content h1 { color: #0f1724; line-height: 1.05; }
+.hero-content .lead { line-height: 1.6; }
+.hero-content p { margin-bottom: .75rem; }
+
+/* Make hero text wrap nicely on small screens */
+@media (max-width: 991px) {
+  #hero { padding-top:70px; padding-bottom:30px; }
+  .hero-content { text-align: center; }
+  .hero-content .d-flex { justify-content:center; }
+}
+
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
