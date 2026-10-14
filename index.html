@@ -20,9 +20,10 @@
 
   <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body class="index-page">
+<body class="index-page studio-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -44,7 +45,7 @@
     </div>
   </header>
 
-  <main class="main">
+  <main class="main studio-layout">
 
     <!-- Hero -->
     <section id="hero" class="hero section">
@@ -52,7 +53,7 @@
         <div class="row gy-4 justify-content-center align-items-center">
           <div class="col-lg-5 text-center order-1 order-lg-1">
             <img src="assets/img/services/IMG_20251117_121228_050.jpg" alt="Hassan Byekwaso"
-              class="img-fluid shadow-sm">
+              class="hero-image img-fluid shadow-sm">
           </div>
 
           <div class="col-lg-7 order-2 order-lg-2">
@@ -83,33 +84,6 @@
       </div>
     </section>
 
-    <style>
-      /* Custom Hero Section Styles */
-      .hero {
-        width: 100%;
-        min-height: 100vh;
-        background-color: #f7fafc;
-        padding: 120px 0;
-        display: flex;
-        align-items: center;
-      }
-
-      .hero .hero-content .lead {
-        font-size: 1.125rem;
-        color: #1f2937;
-      }
-
-      .hero img {
-        max-width: 380px;
-      }
-
-      @media (max-width: 991px) {
-        .hero { min-height: auto; padding: 100px 0 40px 0; }
-        .hero .hero-content, .hero .mt-5 { text-align: center; }
-        .hero .d-flex { justify-content: center; }
-      }
-    </style>
-
     <!-- Services -->
     <section id="services" class="section">
       <div class="container">
@@ -119,7 +93,7 @@
         </div>
         <div class="row gy-4">
           <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0">
+            <div class="card h-100 studio-card">
               <div class="card-body">
                 <h5 class="card-title">Web Development</h5>
                 <p class="card-text">Responsive websites and user-friendly interfaces for individuals and small businesses.</p>
@@ -127,7 +101,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0">
+            <div class="card h-100 studio-card">
               <div class="card-body">
                 <h5 class="card-title">Translation & Interpretation</h5>
                 <p class="card-text">French–English translation, proofreading, and interpretation support on request.</p>
@@ -135,7 +109,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0">
+            <div class="card h-100 studio-card">
               <div class="card-body">
                 <h5 class="card-title">Design & UX</h5>
                 <p class="card-text">Clear digital layouts, graphic design, and practical help with online tasks.</p>
@@ -147,7 +121,7 @@
     </section>
 
     <!-- Light CTA -->
-    <section id="cta" class="py-5 bg-light">
+    <section id="cta" class="py-5 studio-cta">
       <div class="container text-center">
         <h4 class="mb-2 text-dark">Have a project in mind?</h4>
         <p class="mb-3 text-muted">Let's discuss web projects, translations or design work.</p>

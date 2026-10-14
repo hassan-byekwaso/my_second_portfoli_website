@@ -12,19 +12,22 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --nav-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Light theme background */
-  --default-color: #333333;    /* Light theme text */
-  --heading-color: #000000;    /* Light theme headings */
-  --accent-color: #333333;     /* Light theme accent (links, etc.) */
-  --surface-color: #f8f8f8;    /* Light theme cards, boxes, etc. */
-  --contrast-color: #ffffff;   /* Text on accent-colored backgrounds */
+  --background-color: #0b0f19;
+  --default-color: #cbd5e1;
+  --heading-color: #f8fafc;
+  --accent-color: #67e8f9;
+  --surface-color: #111827;
+  --contrast-color: #08111b;
+  --studio-border: rgba(255, 255, 255, 0.1);
+  --studio-glass: rgba(255, 255, 255, 0.045);
+  --studio-muted: #94a3b8;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -1351,4 +1354,459 @@ section,
 .portfolio-info {
   position: relative;
   z-index: 1; /* make sure overlay is behind the link */
+}
+
+/* Studio theme */
+:root {
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --nav-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --background-color: #0b0f19;
+  --default-color: #cbd5e1;
+  --heading-color: #f8fafc;
+  --accent-color: #67e8f9;
+  --surface-color: #111827;
+  --contrast-color: #08111b;
+  --nav-color: #cbd5e1;
+  --nav-hover-color: #67e8f9;
+  --nav-mobile-background-color: #0b0f19;
+  --nav-dropdown-background-color: #111827;
+  --nav-dropdown-color: #f8fafc;
+  --nav-dropdown-hover-color: #67e8f9;
+  --studio-border: rgba(255, 255, 255, 0.1);
+  --studio-glass: rgba(255, 255, 255, 0.045);
+  --studio-muted: #94a3b8;
+}
+
+body {
+  background-color: #0b0f19;
+  background-image:
+    radial-gradient(ellipse at 15% 8%, rgba(34, 211, 238, 0.11), transparent 34rem),
+    radial-gradient(ellipse at 88% 28%, rgba(99, 102, 241, 0.12), transparent 38rem),
+    radial-gradient(ellipse at 50% 82%, rgba(14, 116, 144, 0.08), transparent 40rem);
+  background-attachment: fixed;
+  color: #cbd5e1;
+  font-family: var(--default-font);
+}
+
+.studio-layout {
+  position: relative;
+  isolation: isolate;
+}
+
+section,
+.section {
+  background-color: transparent;
+  color: var(--default-color);
+}
+
+.studio-page h1,
+.studio-page h2,
+.studio-page h3,
+.studio-page h4,
+.studio-page h5,
+.studio-page h6 {
+  color: var(--heading-color);
+  letter-spacing: -0.035em;
+}
+
+.studio-page .text-secondary,
+.studio-page .text-muted {
+  color: var(--studio-muted) !important;
+}
+
+.header {
+  background: rgba(11, 15, 25, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled .header {
+  background: rgba(11, 15, 25, 0.82);
+  border-bottom-color: var(--studio-border);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.header .logo h1 {
+  color: #f8fafc;
+  font-size: 1.25rem;
+  letter-spacing: -0.04em;
+}
+
+.navmenu a.active,
+.navmenu a:hover {
+  color: var(--accent-color);
+}
+
+.page-title,
+.page-title .heading {
+  background: transparent;
+}
+
+.page-title .heading {
+  border-top-color: var(--studio-border);
+  padding: 150px 0 54px;
+}
+
+.page-title h1 {
+  color: var(--heading-color);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 750;
+  letter-spacing: -0.06em;
+}
+
+.page-title nav {
+  background: rgba(255, 255, 255, 0.025);
+  border-top: 1px solid var(--studio-border);
+  border-bottom: 1px solid var(--studio-border);
+}
+
+.page-title nav ol {
+  color: var(--studio-muted);
+}
+
+.page-title nav a,
+.breadcrumbs a {
+  color: #cbd5e1;
+}
+
+.section-title div {
+  color: var(--heading-color);
+}
+
+.section-title h2 {
+  color: var(--accent-color);
+}
+
+.section-title h2::after {
+  background: var(--accent-color);
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 140px 0 88px;
+}
+
+.hero .hero-image {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: min(100%, 380px);
+  height: min(68vh, 520px);
+  object-fit: cover;
+  object-position: center 35%;
+  z-index: auto;
+  margin: 0 auto;
+  border: 1px solid var(--studio-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+}
+
+.hero-content h1 {
+  color: var(--heading-color);
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-weight: 750;
+  letter-spacing: -0.07em;
+}
+
+.hero-content .lead {
+  max-width: 42rem;
+  color: #cbd5e1;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+}
+
+.hero-content p span {
+  border: 0;
+}
+
+.btn-primary {
+  color: #07131d;
+  background: linear-gradient(135deg, #67e8f9, #38bdf8);
+  border: 1px solid rgba(103, 232, 249, 0.65);
+  box-shadow: 0 8px 28px rgba(34, 211, 238, 0.18);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #07131d;
+  background: #a5f3fc;
+  border-color: #a5f3fc;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(34, 211, 238, 0.28);
+}
+
+.studio-page .btn-outline-dark {
+  color: #e2e8f0;
+  border-color: rgba(226, 232, 240, 0.3);
+}
+
+.studio-page .btn-outline-dark:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.studio-card,
+.portfolio-content.studio-card,
+.services .service-item,
+.contact .info-item,
+.resume .resume-item,
+.interests .features-item,
+.testimonials .testimonial-item {
+  position: relative;
+  overflow: hidden;
+  color: #cbd5e1;
+  background: var(--studio-glass);
+  border: 1px solid var(--studio-border);
+  border-radius: 1.1rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease, background-color 240ms ease;
+}
+
+.studio-card::before,
+.portfolio-content.studio-card::before,
+.services .service-item::before,
+.interests .features-item::before {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(103, 232, 249, 0.13), transparent 58%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+
+.studio-card:hover,
+.portfolio-content.studio-card:hover,
+.services .service-item:hover,
+.interests .features-item:hover,
+.testimonials .testimonial-item:hover {
+  transform: translateY(-6px);
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: rgba(103, 232, 249, 0.42);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.32), 0 0 28px rgba(34, 211, 238, 0.12);
+}
+
+.studio-card:hover::before,
+.portfolio-content.studio-card:hover::before,
+.services .service-item:hover::before,
+.interests .features-item:hover::before {
+  opacity: 1;
+}
+
+.studio-card .card-body,
+.portfolio-content.studio-card .portfolio-info,
+.services .service-item > *,
+.interests .features-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.studio-page .card-title,
+.portfolio-info h4,
+.services .service-item h3 {
+  color: var(--heading-color);
+}
+
+.studio-page .card-text,
+.portfolio-info p,
+.services .service-item p,
+.resume .resume-item p,
+.testimonials .testimonial-item p {
+  color: var(--studio-muted);
+}
+
+.portfolio .portfolio-filters li {
+  margin: 0 5px 10px;
+  padding: 10px 16px;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--studio-border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active {
+  color: #07131d;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.portfolio-content.studio-card {
+  height: 100%;
+  background: var(--studio-glass);
+}
+
+.portfolio-content.studio-card img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.portfolio-content.studio-card .portfolio-info {
+  padding: 1.25rem;
+}
+
+.portfolio-content.studio-card .details-link {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  background: rgba(103, 232, 249, 0.08);
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  border-radius: 50%;
+}
+
+.portfolio-content.studio-card .details-link:hover {
+  color: #07131d;
+  background: var(--accent-color);
+}
+
+.services .service-item {
+  min-height: 100%;
+}
+
+.services .service-item h3,
+.services .service-item p {
+  transition: color 180ms ease;
+}
+
+.resume .resume-item {
+  border-color: var(--studio-border);
+  border-left-color: rgba(103, 232, 249, 0.5);
+}
+
+.resume .resume-item::before {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.resume .resume-item h4,
+.resume .resume-title {
+  color: var(--heading-color);
+}
+
+.resume .resume-item h5 {
+  color: var(--accent-color);
+}
+
+.resume .resume-item a,
+.contact .info-item a {
+  color: var(--accent-color);
+}
+
+.contact .info-item {
+  padding: 1.25rem;
+}
+
+.contact .info-item h3,
+.contact .info-item p {
+  color: var(--heading-color);
+}
+
+.contact .php-email-form {
+  padding: 1.5rem;
+  background: var(--studio-glass);
+  border: 1px solid var(--studio-border);
+  border-radius: 1.1rem;
+  backdrop-filter: blur(16px);
+}
+
+.contact .form-control {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--studio-border);
+}
+
+.contact .form-control::placeholder {
+  color: #94a3b8;
+}
+
+.contact .form-control:focus {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(103, 232, 249, 0.6);
+  box-shadow: 0 0 0 0.2rem rgba(103, 232, 249, 0.12);
+}
+
+.studio-cta {
+  padding: 4rem 1rem !important;
+}
+
+.studio-cta > .container {
+  padding: clamp(2rem, 6vw, 4rem);
+  background: var(--studio-glass);
+  border: 1px solid var(--studio-border);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(16px);
+}
+
+.studio-cta .text-dark {
+  color: var(--heading-color) !important;
+}
+
+.footer {
+  color: var(--studio-muted);
+  background: transparent;
+  border-top: 1px solid var(--studio-border);
+}
+
+.footer h3,
+.footer strong {
+  color: var(--heading-color);
+}
+
+.footer .social-links a {
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--studio-border);
+}
+
+.footer .social-links a:hover {
+  color: #07131d;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+@media (max-width: 991px) {
+  .hero {
+    min-height: auto;
+    padding: 110px 0 56px;
+  }
+
+  .hero .hero-image {
+    width: min(100%, 340px);
+    height: min(58vh, 460px);
+  }
+
+  .hero-content,
+  .hero .mt-5 {
+    text-align: center;
+  }
+
+  .hero-content .d-flex {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
