@@ -2,7 +2,7 @@ import hotelImage from "../assets/img/portfolio/hotel.png";
 import campingImage from "../assets/img/portfolio/kasongo.png";
 import gymnasticsImage from "../assets/img/portfolio/gymnastique.png";
 import healthcareImage from "../assets/img/portfolio/knh.png";
-import portfolioImage from "../assets/img/services/IMG_20251117_121228_050.jpg";
+import obhImage from "../assets/img/services/obh.png";
 import bernardAvatar from "../assets/img copy/person/mukhaya.png";
 import ibrahimAvatar from "../assets/img copy/person/ibrahim.png";
 import denzelAvatar from "../assets/img copy/person/denzel gitonnga.png";
@@ -187,4 +187,4 @@ export const testimonials = [
   },
 ];
 
-export const portrait = portfolioImage;
+export const portrait = obhImage;
