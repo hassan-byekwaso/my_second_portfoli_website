@@ -20,7 +20,7 @@ export default function PortfolioPage() {
       <PageHeading
         eyebrow="Selected work & explorations"
         title="Projects"
-        description="A selection of live website projects and personal application concepts. Concepts are clearly marked so you can see what is in progress."
+        description="Explore a completed full-stack e-commerce app and live website projects, alongside personal application concepts clearly marked as in development."
       />
 
       <div className="mb-8 flex flex-wrap justify-center gap-2" aria-label="Filter projects">

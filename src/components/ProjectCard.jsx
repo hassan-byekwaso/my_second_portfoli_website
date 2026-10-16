@@ -34,7 +34,11 @@ export default function ProjectCard({ project }) {
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              aria-label={`Open ${project.title} live website`}
+              aria-label={
+                project.linkLabel
+                  ? `${project.linkLabel}: ${project.title}`
+                  : `Open ${project.title} live website`
+              }
               className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-slate-300 transition hover:border-cyan-200/40 hover:text-cyan-200"
             >
               <ExternalLink size={16} />
@@ -63,7 +67,7 @@ export default function ProjectCard({ project }) {
               rel="noreferrer"
               className="inline-flex items-center gap-1 text-cyan-200 transition hover:text-white"
             >
-              Live website <ArrowUpRight size={14} />
+              {project.linkLabel || "Live website"} <ArrowUpRight size={14} />
             </a>
           )}
         </div>

@@ -2,6 +2,7 @@ import hotelImage from "../assets/img/portfolio/hotel.png";
 import campingImage from "../assets/img/portfolio/kasongo.png";
 import gymnasticsImage from "../assets/img/portfolio/gymnastique.png";
 import healthcareImage from "../assets/img/portfolio/knh.png";
+import niaMartImage from "../assets/img/niamart.png";
 import obhImage from "../assets/img/services/obh.png";
 import bernardAvatar from "../assets/img copy/person/mukhaya.png";
 import ibrahimAvatar from "../assets/img copy/person/ibrahim.png";
@@ -19,6 +20,17 @@ export const profile = {
 };
 
 export const projects = [
+  {
+    title: "Nia Mart",
+    category: "MERN Apps",
+    image: niaMartImage,
+    description:
+      "A full-stack e-commerce application featuring product browsing, a shopping cart, order management, and M-Pesa Daraja payment integration.",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "M-Pesa Daraja"],
+    liveUrl: "https://nia-mart-git-main-hassans-projects-e7789bee.vercel.app",
+    linkLabel: "Review live app",
+    status: "Completed project",
+  },
   {
     title: "Hotel Website",
     category: "Websites",
