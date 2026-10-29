@@ -21,6 +21,16 @@ export const profile = {
 
 export const projects = [
   {
+    title: "LearnHub - Udemy Clone",
+    category: "Websites",
+    description:
+      "An Udemy-inspired online learning platform for discovering courses and accessing learning content.",
+    technologies: ["Online learning", "Course platform", "Web development"],
+    liveUrl: "https://learnhub-udemy-clone.vercel.app",
+    linkLabel: "Visit live platform",
+    status: "Live website",
+  },
+  {
     title: "Nia Mart",
     category: "MERN Apps",
     image: niaMartImage,
