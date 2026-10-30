@@ -16,10 +16,36 @@ const contactDetails = [
 
 export default function ContactPage() {
   const [submission, setSubmission] = useState({ status: "idle", message: "" });
+  const [errors, setErrors] = useState({});
 
   async function handleSubmit(event) {
     event.preventDefault();
     const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const subject = String(formData.get("subject") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const validationErrors = {};
+
+    if (!name) validationErrors.name = "Please enter your name.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      validationErrors.email = "Please enter a valid email address.";
+    }
+    if (!subject) validationErrors.subject = "Please enter a subject.";
+    if (message.length < 10) {
+      validationErrors.message = "Please write a message of at least 10 characters.";
+    }
+
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) {
+      setSubmission({
+        status: "error",
+        message: "Please correct the highlighted fields before sending.",
+      });
+      return;
+    }
+
     setSubmission({ status: "sending", message: "" });
 
     try {
@@ -31,7 +57,7 @@ export default function ContactPage() {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+          body: JSON.stringify(Object.fromEntries(formData)),
         },
       );
       const result = await response.json();
@@ -103,7 +129,11 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-5 sm:p-8">
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className="glass-card rounded-2xl p-5 sm:p-8"
+        >
           <input
             type="hidden"
             name="_subject"
@@ -132,9 +162,16 @@ export default function ContactPage() {
                 type="text"
                 autoComplete="name"
                 required
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? "contact-name-error" : undefined}
                 className="form-field"
                 placeholder="Your name"
               />
+              {errors.name && (
+                <p id="contact-name-error" className="mt-2 text-sm text-rose-300" role="alert">
+                  {errors.name}
+                </p>
+              )}
             </div>
             <div>
               <label htmlFor="contact-email" className="mb-2 block text-sm text-slate-300">
@@ -146,9 +183,16 @@ export default function ContactPage() {
                 type="email"
                 autoComplete="email"
                 required
+                aria-invalid={Boolean(errors.email)}
+                aria-describedby={errors.email ? "contact-email-error" : undefined}
                 className="form-field"
                 placeholder="you@example.com"
               />
+              {errors.email && (
+                <p id="contact-email-error" className="mt-2 text-sm text-rose-300" role="alert">
+                  {errors.email}
+                </p>
+              )}
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="contact-subject" className="mb-2 block text-sm text-slate-300">
@@ -159,9 +203,16 @@ export default function ContactPage() {
                 name="subject"
                 type="text"
                 required
+                aria-invalid={Boolean(errors.subject)}
+                aria-describedby={errors.subject ? "contact-subject-error" : undefined}
                 className="form-field"
                 placeholder="What would you like to discuss?"
               />
+              {errors.subject && (
+                <p id="contact-subject-error" className="mt-2 text-sm text-rose-300" role="alert">
+                  {errors.subject}
+                </p>
+              )}
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="contact-message" className="mb-2 block text-sm text-slate-300">
@@ -172,9 +223,16 @@ export default function ContactPage() {
                 name="message"
                 rows="6"
                 required
+                aria-invalid={Boolean(errors.message)}
+                aria-describedby={errors.message ? "contact-message-error" : undefined}
                 className="form-field resize-y"
                 placeholder="Tell me a little about what you need..."
               />
+              {errors.message && (
+                <p id="contact-message-error" className="mt-2 text-sm text-rose-300" role="alert">
+                  {errors.message}
+                </p>
+              )}
             </div>
             <div className="sm:col-span-2">
               <button

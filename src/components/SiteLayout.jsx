@@ -1,20 +1,61 @@
-import { useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { profile } from "../data.js";
 
 const navigation = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Resume", to: "/resume" },
-  { label: "Services", to: "/services" },
-  { label: "Portfolio", to: "/portfolio" },
+  { label: "Home", id: "home" },
+  { label: "About", id: "about" },
+  { label: "Skills", id: "skills" },
+  { label: "Projects", id: "projects" },
+  { label: "Contact", id: "contact" },
 ];
 
 export default function SiteLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = window.localStorage.getItem("portfolio-theme");
+    return savedTheme === "light" ? "light" : "dark";
+  });
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const sectionId = location.state?.scrollTarget;
+    if (location.pathname !== "/" || typeof sectionId !== "string") return;
+
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(sectionId)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      navigate("/", { replace: true, state: null });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname, location.state, navigate]);
+
+  const handleSectionLink = (event, sectionId) => {
+    event.preventDefault();
+    closeMenu();
+
+    if (location.pathname === "/") {
+      document.getElementById(sectionId)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      return;
+    }
+
+    navigate("/", { state: { scrollTarget: sectionId } });
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -32,36 +73,43 @@ export default function SiteLayout({ children }) {
             </span>
           </Link>
 
-          <button
-            type="button"
-            className="inline-flex size-10 items-center justify-center rounded-xl border border-white/10 text-slate-200 transition hover:border-cyan-300/40 hover:text-white md:hidden"
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              className="inline-flex size-10 items-center justify-center rounded-xl border border-white/10 text-slate-200 transition hover:border-cyan-300/40 hover:text-white"
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              aria-pressed={theme === "light"}
+              onClick={() =>
+                setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"))
+              }
+            >
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button
+              type="button"
+              className="inline-flex size-10 items-center justify-center rounded-xl border border-white/10 text-slate-200 transition hover:border-cyan-300/40 hover:text-white md:hidden"
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
 
           <nav
             aria-label="Main navigation"
             className={`${menuOpen ? "flex" : "hidden"} absolute left-0 right-0 top-full flex-col gap-1 border-b border-white/10 bg-[#0b0f19]/95 p-4 shadow-2xl backdrop-blur-xl md:static md:flex md:flex-row md:items-center md:gap-1 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}
           >
             {navigation.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.to === "/"}
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `rounded-lg px-3 py-2 text-sm transition-colors ${
-                    isActive
-                      ? "bg-white/[0.07] text-white"
-                      : "text-slate-400 hover:text-white"
-                  }`
-                }
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(event) => handleSectionLink(event, item.id)}
+                className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/[0.07] hover:text-white"
               >
                 {item.label}
-              </NavLink>
+              </a>
             ))}
             <Link
               to="/contact"

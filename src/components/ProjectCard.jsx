@@ -1,27 +1,24 @@
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+
+const fallbackImage = "/images/project-placeholder.svg";
 
 export default function ProjectCard({ project }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const imageSource = imageFailed
+    ? fallbackImage
+    : project.image || fallbackImage;
+
   return (
     <article className="glass-card group flex h-full flex-col overflow-hidden rounded-2xl">
       <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-        {project.image ? (
-          <img
-            src={project.image}
-            alt={`${project.title} project preview`}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
-            loading="lazy"
-          />
-        ) : (
-          <div className="flex h-full items-center justify-center bg-[radial-gradient(ellipse_at_top_right,_rgba(34,211,238,0.16),_transparent_55%),linear-gradient(135deg,#111827,#0f172a)] p-8">
-            <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
-                {project.category}
-              </p>
-              <p className="mt-3 text-xl font-semibold text-white">{project.title}</p>
-              <p className="mt-2 text-sm text-slate-400">{project.status}</p>
-            </div>
-          </div>
-        )}
+        <img
+          src={imageSource}
+          alt={`${project.title} project preview`}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+          loading="lazy"
+          onError={() => setImageFailed(true)}
+        />
         <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-slate-950/75 px-3 py-1 text-xs text-slate-200 backdrop-blur-md">
           {project.category}
         </span>
@@ -60,14 +57,26 @@ export default function ProjectCard({ project }) {
         </div>
         <div className="mt-5 flex items-center justify-between border-t border-white/[0.08] pt-4 text-xs text-slate-500">
           <span>{project.status}</span>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 text-cyan-200 transition hover:text-white"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-300 px-3 py-2 text-xs font-semibold text-slate-950 transition hover:bg-cyan-200"
             >
-              {project.linkLabel || "Live website"} <ArrowUpRight size={14} />
+              Live Demo <ArrowUpRight size={14} />
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-2 text-xs font-medium text-slate-300 transition hover:border-cyan-200/40 hover:text-white"
+            >
+              <Github size={14} /> GitHub Repo
             </a>
           )}
         </div>

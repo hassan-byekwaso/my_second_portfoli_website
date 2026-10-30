@@ -9,7 +9,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { profile, projects, services, portrait } from "../data.js";
+import { projects, services, portrait, technicalSkills } from "../data.js";
 import ProjectCard from "../components/ProjectCard.jsx";
 
 const serviceIcons = [Code2, Languages, Palette];
@@ -17,7 +17,10 @@ const serviceIcons = [Code2, Languages, Palette];
 export default function HomePage() {
   return (
     <>
-      <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pt-24 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pb-28">
+      <section
+        id="home"
+        className="mx-auto grid scroll-mt-24 max-w-7xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pt-24 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pb-28"
+      >
         <div className="relative mx-auto w-full max-w-md lg:mx-0">
           <div className="absolute -inset-5 rounded-[2.5rem] bg-cyan-300/[0.08] blur-3xl" />
           <div className="glass-card relative overflow-hidden rounded-[2rem] p-3">
@@ -72,7 +75,14 @@ export default function HomePage() {
             </Link>
           </div>
           <a
-            href="#overview"
+            href="#about"
+            onClick={(event) => {
+              event.preventDefault();
+              document.getElementById("about")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
             className="mt-10 inline-flex items-center gap-2 text-sm text-slate-500 transition hover:text-cyan-200"
           >
             A little more about me <ArrowDown size={15} />
@@ -80,7 +90,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="overview" className="mx-auto max-w-7xl scroll-mt-24 px-5 pb-20 sm:px-8">
+      <section id="about" className="mx-auto max-w-7xl scroll-mt-24 px-5 pb-20 sm:px-8">
         <div className="glass-card grid gap-8 rounded-3xl p-6 sm:p-9 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
@@ -119,6 +129,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="skills" className="mx-auto max-w-7xl scroll-mt-24 px-5 pb-20 sm:px-8">
+        <div className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
+            Engineering stack
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold text-white">Tools I work with</h2>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {technicalSkills.map((skill) => (
+            <article key={skill.name} className="glass-card rounded-2xl p-5">
+              <span className="inline-flex rounded-full border border-cyan-200/20 bg-cyan-200/[0.08] px-3 py-1 text-xs font-medium text-cyan-100">
+                {skill.category}
+              </span>
+              <h3 className="mt-4 text-lg font-semibold text-white">{skill.name}</h3>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
@@ -150,7 +179,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
+      <section id="projects" className="mx-auto max-w-7xl scroll-mt-24 px-5 pb-20 sm:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
@@ -172,7 +201,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-8">
+      <section id="contact" className="mx-auto max-w-7xl scroll-mt-24 px-5 pb-24 sm:px-8">
         <div className="relative overflow-hidden rounded-3xl border border-cyan-200/15 bg-gradient-to-br from-cyan-300/[0.12] via-slate-900/80 to-indigo-400/[0.08] p-7 sm:p-10 lg:p-12">
           <div className="absolute -right-16 -top-24 size-72 rounded-full bg-cyan-300/[0.08] blur-3xl" />
           <div className="relative flex flex-col items-start justify-between gap-7 sm:flex-row sm:items-center">

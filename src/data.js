@@ -1,8 +1,3 @@
-import hotelImage from "../assets/img/portfolio/hotel.png";
-import campingImage from "../assets/img/portfolio/kasongo.png";
-import gymnasticsImage from "../assets/img/portfolio/gymnastique.png";
-import healthcareImage from "../assets/img/portfolio/knh.png";
-import niaMartImage from "../assets/img/niamart.png";
 import obhImage from "../assets/img/services/obh.png";
 import bernardAvatar from "../assets/img copy/person/mukhaya.png";
 import ibrahimAvatar from "../assets/img copy/person/ibrahim.png";
@@ -27,24 +22,26 @@ export const projects = [
       "An Udemy-inspired online learning platform for discovering courses and accessing learning content.",
     technologies: ["Online learning", "Course platform", "Web development"],
     liveUrl: "https://learnhub-udemy-clone.vercel.app",
+    githubUrl: "https://github.com/hassan-byekwaso/learnhub-udemy-clone",
     linkLabel: "Visit live platform",
     status: "Live website",
   },
   {
     title: "Nia Mart",
     category: "MERN Apps",
-    image: niaMartImage,
+    image: "/images/niamart.png",
     description:
       "A full-stack e-commerce application featuring product browsing, a shopping cart, order management, and M-Pesa Daraja payment integration.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "M-Pesa Daraja"],
     liveUrl: "https://nia-mart-git-main-hassans-projects-e7789bee.vercel.app",
+    githubUrl: "https://github.com/hassan-byekwaso/NiaMart",
     linkLabel: "Review live app",
     status: "Completed project",
   },
   {
     title: "Hotel Website",
     category: "Websites",
-    image: hotelImage,
+    image: "/images/hotel.png",
     description:
       "A hospitality website concept presenting hotel services in a clear, welcoming, responsive layout.",
     technologies: ["Responsive design", "Web development"],
@@ -54,7 +51,7 @@ export const projects = [
   {
     title: "Camping Retreat",
     category: "Websites",
-    image: campingImage,
+    image: "/images/kasongo.png",
     description:
       "A nature-inspired retreat website with visitor-focused information and an inviting visual direction.",
     technologies: ["Responsive design", "Web development"],
@@ -64,7 +61,7 @@ export const projects = [
   {
     title: "Gymnastics Club",
     category: "Websites",
-    image: gymnasticsImage,
+    image: "/images/gymnastique.png",
     description:
       "A club website that introduces the organization, its activities, and useful information for visitors.",
     technologies: ["Responsive design", "Web development"],
@@ -74,7 +71,7 @@ export const projects = [
   {
     title: "Healthcare Website",
     category: "Websites",
-    image: healthcareImage,
+    image: "/images/knh.png",
     description:
       "A healthcare website project focused on making service information easier for visitors to find.",
     technologies: ["Responsive design", "Web development"],
@@ -183,6 +180,18 @@ export const skillGroups = [
     title: "Languages",
     skills: ["French", "English", "Swahili"],
   },
+];
+
+export const technicalSkills = [
+  { name: "HTML", category: "Frontend", icon: "code" },
+  { name: "CSS", category: "Frontend", icon: "palette" },
+  { name: "JavaScript", category: "Frontend", icon: "braces" },
+  { name: "React", category: "Frontend", icon: "atom" },
+  { name: "Node.js", category: "Backend", icon: "server" },
+  { name: "Express", category: "Backend", icon: "layers" },
+  { name: "MongoDB", category: "Database", icon: "database" },
+  { name: "Git", category: "Tools", icon: "git" },
+  { name: "M-Pesa API integration", category: "Payments", icon: "credit-card" },
 ];
 
 export const testimonials = [

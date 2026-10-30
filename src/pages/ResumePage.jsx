@@ -1,4 +1,10 @@
-import { ArrowUpRight, BriefcaseBusiness, GraduationCap, MapPin } from "lucide-react";
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Download,
+  GraduationCap,
+  MapPin,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import PageHeading from "../components/PageHeading.jsx";
 import { profile, projects, skillGroups } from "../data.js";
@@ -72,6 +78,16 @@ export default function ResumePage() {
         title="Résumé"
         description="A multidisciplinary background spanning web development, French-English language work, and hands-on digital services."
       />
+      <div className="mb-8 flex justify-center">
+        <a
+          href="/resume.pdf"
+          download="Hassan_Onyango_Resume.pdf"
+          className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+        >
+          <Download size={17} aria-hidden="true" />
+          Download Resume PDF
+        </a>
+      </div>
 
       <section className="grid items-start gap-5 lg:grid-cols-[0.82fr_1.18fr]">
         <aside className="space-y-5">
