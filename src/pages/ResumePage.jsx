@@ -81,7 +81,7 @@ export default function ResumePage() {
       <div className="mb-8 flex justify-center">
         <a
           href="/resume.pdf"
-          download="Hassan_Onyango_Resume.pdf"
+          download="Hassan_Byekwaso_Onyango_Resume.pdf"
           className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
         >
           <Download size={17} aria-hidden="true" />

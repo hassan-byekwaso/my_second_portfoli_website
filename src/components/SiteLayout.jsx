@@ -8,6 +8,7 @@ const navigation = [
   { label: "About", id: "about" },
   { label: "Skills", id: "skills" },
   { label: "Projects", id: "projects" },
+  { label: "Résumé", to: "/resume" },
   { label: "Contact", id: "contact" },
 ];
 
@@ -102,14 +103,25 @@ export default function SiteLayout({ children }) {
             className={`${menuOpen ? "flex" : "hidden"} absolute left-0 right-0 top-full flex-col gap-1 border-b border-white/10 bg-[#0b0f19]/95 p-4 shadow-2xl backdrop-blur-xl md:static md:flex md:flex-row md:items-center md:gap-1 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}
           >
             {navigation.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(event) => handleSectionLink(event, item.id)}
-                className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/[0.07] hover:text-white"
-              >
-                {item.label}
-              </a>
+              item.to ? (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={closeMenu}
+                  className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/[0.07] hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(event) => handleSectionLink(event, item.id)}
+                  className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-white/[0.07] hover:text-white"
+                >
+                  {item.label}
+                </a>
+              )
             ))}
             <Link
               to="/contact"
